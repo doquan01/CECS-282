@@ -6,25 +6,21 @@
 using namespace std;
 
 void transform( char *raw, char *testStr){
-int i = 0;
-int j = 0;
-int k = 0;
-int count = 0;
-while(*(raw + i) != '\0'){
-	if(isalpha(*(raw + i)) == 0){
-		count++;
+	int j = 0;
+	int count = 0;
+	for(int i = 0; *(raw+i) != '\0'; i++){
+		if(isalpha(*(raw + i)) == 0){
+			count++;
+		}
 	}
-	i++;
-}
-char* temp = new char[strlen(raw) - count + 1];
-while(*(raw + j) != '\0'){
-	if(isalpha(*(raw + j))){
-		*(temp + k) = toupper(*(raw + j));
-		k++;
+	char* temp = new char[strlen(raw) - count + 1];
+	for(int i = 0; *(raw+i) != '\0'; i++){
+		if(isalpha(*(raw + i))){
+			*(temp + j) = toupper(*(raw + i));
+			j++;
+		}
 	}
-	j++;
-}
-strcpy(testStr, temp);
+	strcpy(testStr, temp);
 }
 //bool testPalindrome(char *s){
 //    int i = 0;
